@@ -24,8 +24,8 @@ const HomeScreen = () => {
       <Text>Step Out with confidence with your own StepOut buddy</Text>
     </View>
 
-    <View className="absolute bottom-20 w-24 h-24 bg-slate-300 border-l-2 border-r-2 border-t-4 border-[#00BCC9] ">
-      <View><Text>StepIn</Text></View>
+    <View className="absolute bottom-20 w-24 h-24 bg-slate-300 border-l-2 border-r-2 border-t-4 border-[#00BCC9] rounder-full items-center justify-center ">
+      <View className="w-20 h-20 items-center justify-center "><Text>StepIn</Text></View>
     </View>
     </SafeAreaView>
    
