@@ -85,8 +85,8 @@ const Discover = () => {
             </TouchableOpacity>
            </View>
            <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
-               <ItemCarContainer key={"101"} imageSrc={""} title="" location=""/>
-               <ItemCarContainer key={"102"} imageSrc={""} title="" location=""/>
+               <ItemCarContainer key={"101"} imageSrc={"https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg"} title="Something" location="Islamabad"/>
+               <ItemCarContainer key={"102"} imageSrc={"https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg"} title="Sample" location="Pakistan"/>
 
            </View>
         </View>
