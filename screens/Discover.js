@@ -113,10 +113,9 @@ const Discover = () => {
                     data?.photo?.images?.medium?.url :
                     "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Ftea-spoon-white-background&psig=AOvVaw1z_cpcAVtVTFQ8NO6r1GpN&ust=1687465223001000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCOiu4PqX1f8CFQAAAAAdAAAAABAE"
                   } 
-                  {data?.name && (
                    title={data?.name} 
                    location={data?.location_string}
-                 )}
+                   data={data}
                    />
                
                   
