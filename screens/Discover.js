@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, TouchableOpacity, ActivityIndicator, Image } from 'react-native'
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
@@ -7,6 +7,8 @@ import MenuContainer from '../components/MenuContainer';
 import { Attractions, Hotels, NotFound, Restaurants } from '../assets';
 import { FontAwesome } from '@expo/vector-icons';
 import ItemCarContainer from '../components/ItemCarContainer';
+import { getPlacesData } from '../api';
+import { data } from 'autoprefixer';
 
 const Discover = () => {
 
@@ -22,7 +24,17 @@ const Discover = () => {
       headerShown: false,
     })
 
-  })
+  }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getPlacesData().then((data) => {
+      setMainData(data);
+      setInterval(() => {
+        setIsLoading(false);
+      }, 2000);
+    })
+  }, []);
   return (
  
      <SafeAreaView className="flex-1 justify-center align-center bg-white relative">
@@ -91,10 +103,28 @@ const Discover = () => {
             </TouchableOpacity>
            </View>
            <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
-                {mainData?.length > 0 ? <>
-               <ItemCarContainer key={"101"} imageSrc={"https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg"} title="Something" location="Islamabad"/>
-               <ItemCarContainer key={"102"} imageSrc={"https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg"} title="Sample" location="Pakistan"/>
-               </> : <>
+                {mainData?.length > 0 ? (
+                <>
+                {mainData?.map((data, i) => (
+                   <ItemCarContainer 
+                   key={i} 
+                   imageSrc={   
+                    data?.photo?.images?.medium?.url ?
+                    data?.photo?.images?.medium?.url :
+                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Ftea-spoon-white-background&psig=AOvVaw1z_cpcAVtVTFQ8NO6r1GpN&ust=1687465223001000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCOiu4PqX1f8CFQAAAAAdAAAAABAE"
+                  } 
+                  {data?.name && (
+                   title={data?.name} 
+                   location={data?.location_string}
+                 )}
+                   />
+               
+                  
+                ))}
+                   
+
+               </>
+                ): (<>
                <View className="w-full h-[350px] bg-red-400 items-center space-y-8 justify-center">
                       <Image source={NotFound} className="w-32 h-32 object-cover" />
               
@@ -102,7 +132,7 @@ const Discover = () => {
                </View>
           
                </>
-               }
+               )}
            </View>
         </View>
        
