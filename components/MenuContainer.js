@@ -1,11 +1,20 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { TouchableOpacity } from 'react-native-web'
 
-const MenuContainer = (title, imageSrc, type, setType) => {
+
+const MenuContainer = ({title, imageSrc, type, setType}) => {
   return (
-    <TouchableOpacity className="">
-      <Text>MenuContainer</Text>
+    <TouchableOpacity className="items-center justify-center space-y-2" onPress={}>
+      <View className={`w-24 h-20 shadow-sm rounded-full justify-center
+       ${type === title.toLowerCase() ? "bg-gray-500" :" "}`}>
+        <Image
+        source={imageSrc} className="w-full h-full object-contain" />
+
+      
+      </View>
+   
+      <Text className="text-[#00BCC9] font-semibold">{title}</Text>
+      
       </TouchableOpacity>
   )
 }
