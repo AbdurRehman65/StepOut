@@ -95,10 +95,10 @@ const Discover = () => {
                <ItemCarContainer key={"101"} imageSrc={"https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg"} title="Something" location="Islamabad"/>
                <ItemCarContainer key={"102"} imageSrc={"https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg"} title="Sample" location="Pakistan"/>
                </> : <>
-               <View className="w-full h-[600px] items-center space-y-8 justify-center">
+               <View className="w-full h-[350px] bg-red-400 items-center space-y-8 justify-center">
                       <Image source={NotFound} className="w-32 h-32 object-cover" />
               
-                      <Text>Oops no data found</Text>             
+                      <Text className="text-xl text-[#428288] font-semibold">Oops no data found</Text>             
                </View>
           
                </>
