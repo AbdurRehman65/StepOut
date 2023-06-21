@@ -3,8 +3,12 @@ import React from 'react'
 
 
 const MenuContainer = ({title, imageSrc, type, setType}) => {
+const handlePress = () => {
+  setType(title.toLowerCase())
+}
+
   return (
-    <TouchableOpacity className="items-center justify-center space-y-2" onPress={}>
+    <TouchableOpacity className="items-center justify-center space-y-2" onPress={handlePress}>
       <View className={`w-24 h-20 shadow-sm rounded-full justify-center
        ${type === title.toLowerCase() ? "bg-gray-500" :" "}`}>
         <Image
