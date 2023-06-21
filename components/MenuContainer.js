@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { TouchableOpacity } from 'react-native-web'
 
-const MenuContainer = () => {
+const MenuContainer = (title, imageSrc, type, setType) => {
   return (
-    <View>
+    <TouchableOpacity className="">
       <Text>MenuContainer</Text>
-    </View>
+      </TouchableOpacity>
   )
 }
 
