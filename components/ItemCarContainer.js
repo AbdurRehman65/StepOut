@@ -13,8 +13,8 @@ const ItemCarContainer = ({imageSrc, title, location}) => {
 <Text className="text-[#428288] text-[18px] font-bold">{title?.length > 14 ? `${title.slice(0,14)}..` : title}</Text>
       
       
-       <View>
-       <FontAwesome5 name="map-marker-alt" size={24} color="black" />
+       <View className="flex-row items-center space-x-1">
+       <FontAwesome5 name="map-marker-alt" size={20} color="#859782" />
        <Text className="text-[#428288] text-[14px] font-bold">{location?.length > 14 ? `${title.slice(0,14)}..` : location}</Text>
        </View>
    </TouchableOpacity>

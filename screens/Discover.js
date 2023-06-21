@@ -1,10 +1,10 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity, ActivityIndicator, Image } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
 import MenuContainer from '../components/MenuContainer';
-import { Attractions, Hotels, Restaurants } from '../assets';
+import { Attractions, Hotels, NotFound, Restaurants } from '../assets';
 import { FontAwesome } from '@expo/vector-icons';
 import ItemCarContainer from '../components/ItemCarContainer';
 
@@ -14,6 +14,8 @@ const Discover = () => {
     const navigation = useNavigation();
 
     const [type, setType] = useState('restaurants')
+    const [isLoading, setIsLoading] = useState(false);
+    const [mainData, setMainData] = useState([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -25,8 +27,8 @@ const Discover = () => {
  
      <SafeAreaView className="flex-1 justify-center align-center bg-white relative">
       <View className="flex-row items-center justify-between px-8">
-        <View><Text className="text-[40px] text-[#0B646B] font-bold ">Explore</Text>
-        <Text className="text=[#527283] text-[36px]">the nature today</Text></View>
+        <View><Text className="text-[30px] text-[#0B646B] font-bold ">Explore</Text>
+        <Text className="text=[#527283] text-[28px]">the nature today</Text></View>
         <View className="w-12 h-12 bg-gray-400 rounded-md items-center justify-center">
         
         </View>
@@ -50,6 +52,10 @@ const Discover = () => {
       </View>
 
        {/* Menu Container*/}
+       {isLoading ? <View className="flex-1 items-center justify-center">
+        <ActivityIndicator size="large" color="#0B6468" />
+       </View> :
+       
       <ScrollView>
         <View className="flex-row items-center justify-between px-8 mt-8">
          <MenuContainer 
@@ -85,13 +91,23 @@ const Discover = () => {
             </TouchableOpacity>
            </View>
            <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
+                {mainData?.length > 0 ? <>
                <ItemCarContainer key={"101"} imageSrc={"https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg"} title="Something" location="Islamabad"/>
                <ItemCarContainer key={"102"} imageSrc={"https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg"} title="Sample" location="Pakistan"/>
-
+               </> : <>
+               <View className="w-full h-[600px] items-center space-y-8 justify-center">
+                      <Image source={NotFound} className="w-32 h-32 object-cover" />
+              
+                      <Text>Oops no data found</Text>             
+               </View>
+          
+               </>
+               }
            </View>
         </View>
        
       </ScrollView>
+      }
       </SafeAreaView>
     
   )
