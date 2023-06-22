@@ -18,6 +18,10 @@ const Discover = () => {
     const [type, setType] = useState('restaurants')
     const [isLoading, setIsLoading] = useState(false);
     const [mainData, setMainData] = useState([]);
+    const [bl_lat, setBl_lat] = useState(null);
+    const [bl_lng, setBl_lng] = useState(null);
+    const [tr_lat, setTr_lat] = useState(null);
+    const [tr_lng, setTr_lng] = useState(null);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -28,13 +32,13 @@ const Discover = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getPlacesData().then((data) => {
+    getPlacesData(bl_lat,bl_lng,tr_lat,tr_lng).then((data) => {
       setMainData(data);
       setInterval(() => {
         setIsLoading(false);
       }, 2000);
     })
-  }, []);
+  }, [bl_lat,bl_lng,tr_lat,tr_lng]);
   return (
  
      <SafeAreaView className="flex-1 justify-center align-center bg-white relative">
@@ -53,7 +57,11 @@ const Discover = () => {
       GooglePlacesDetailsQuery={{fields :"geometry"}}
       onPress={(data, details = null) => {
         // 'details' is provided when fetchDetails = true
-        console.log(details ?.geometry?.viewport);
+        console.log(details?.geometry?.viewport);
+        setBl_lat(details?.geometry?.viewport?.southwest?.lat)
+        setBl_lng(details?.geometry?.viewport?.southwest?.lng)
+        setTr_lat(details?.geometry?.viewport?.northeast?.lat)
+        setTr_lng(details?.geometry?.viewport?.northeast?.lng)
       }}
       query={{
         key: 'AIzaSyD3HOBfvvXq9rDJdJC051OTX8xaadVE1kk',

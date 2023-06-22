@@ -1,15 +1,15 @@
 import { data } from "autoprefixer";
 import axios from "axios";
 
-export const getPlacesData = async () => {
+export const getPlacesData = async (bl_lat,bl_lng,tr_lat,tr_lng) => {
     try {
        {/*Destructure Data (Able to fetch Data only Array from the given url)*/} 
        const {data: {data}} =  await axios.get(`https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary`,
         {  params: {
-            bl_latitude: '33.44553546028573',
-            tr_latitude: '33.78669700700176',
-            bl_longitude: '72.78809490020713',
-            tr_longitude: '73.38412114355594',
+            bl_latitude: bl_lat ? bl_lat : '33.44553546028573',
+            tr_latitude: tr_lat ? tr_lat : '33.78669700700176',
+            bl_longitude: bl_lng ? bl_lng : '72.78809490020713',
+            tr_longitude: tr_lng ? tr_lng : '73.38412114355594',
             limit: '30',
             currency: 'USD',
             lunit: 'km',
