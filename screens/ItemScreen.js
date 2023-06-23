@@ -17,7 +17,7 @@ const ItemScreen = ({route}) => {
 
       console.log(data);
   return (
-    <SafeAreaView className="flex-1 bg-white relative">
+    <SafeAreaView className="flex-1 mt-4 bg-white relative">
       <ScrollView className="flex-1 px-4 py-6">
         <View className="relative bg-white shadow-lg">
             <Image 
@@ -174,6 +174,9 @@ const ItemScreen = ({route}) => {
 
                   </View>
                 ) } 
+
+              </View>
+              <View className="mt-4">
 
               </View>
       </ScrollView>

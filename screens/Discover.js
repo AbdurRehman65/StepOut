@@ -80,14 +80,7 @@ const Discover = () => {
        
       <ScrollView>
         <View className="flex-row items-center justify-between px-8 mt-8">
-         <MenuContainer 
-             key={"hotels"}
-             title="hotels"
-             imageSrc={Hotels}
-             type={type}
-             setType={setType}     
-         />
-
+       
          <MenuContainer 
              key={"attractions"}
              title="Attractions"
@@ -107,10 +100,7 @@ const Discover = () => {
         <View>
            <View className="flex-row items-center justify-between px-4 mt-8"> 
             <Text className="text-[#2C7379] text-[22px] font-bold">Top Suggestions</Text>
-            <TouchableOpacity className="flex-row items-center justify-center space-x-2">
-               <Text>Explore</Text> 
-               <FontAwesome name="long-arrow-right" size={24} color="#A0C4C7" />
-            </TouchableOpacity>
+            
            </View>
            <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
                 {mainData?.length > 0 ? (

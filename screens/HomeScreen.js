@@ -22,7 +22,7 @@ const HomeScreen = () => {
 
     </View>
 
-    <View className="mx-2"> 
+    <View className="mx-2 mt-2"> 
       <Text className="text-[#3C6072] text-[28px] border rounded-2xl font-light px-2">Great Journeys Begin with 
       Simple Steps</Text>
       {/*<Text className="mt-50 text-[#3C6072] text-[17px] font-bold">Step Out with confidence with your own StepOut buddy</Text>*/}
