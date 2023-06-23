@@ -41,7 +41,7 @@ const Discover = () => {
   }, [bl_lat,bl_lng,tr_lat,tr_lng, type]);
   return (
  
-     <SafeAreaView className="flex-1 justify-center align-center bg-white relative">
+     <SafeAreaView className="flex-1 mt-10 justify-center align-center bg-white relative">
       <View className="flex-row items-center justify-between px-8">
         <View><Text className="text-[30px] text-[#0B646B] font-bold ">Explore</Text>
         <Text className="text=[#527283] text-[28px]">the nature today</Text></View>
@@ -50,7 +50,7 @@ const Discover = () => {
         </View>
     
       </View>
-      <View className="flex-row items-center bg-white mx-4 rounded-xl py-1 px-4 shadow-lg mt-4">
+      <View className="flex-row items-center bg-white mx-4 rounded-xl border py-1 px-4 shadow-lg mt-4">
                <GooglePlacesAutocomplete
       placeholder='Search'
       fetchDetails={true}
