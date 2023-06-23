@@ -4,7 +4,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
 import MenuContainer from '../components/MenuContainer';
-import { Attractions, Hotels, NotFound, Restaurants } from '../assets';
+import { Attractions, Hotels, NotFound, Restaurants, SpyGlass } from '../assets';
 import { FontAwesome } from '@expo/vector-icons';
 import ItemCarContainer from '../components/ItemCarContainer';
 import { getPlacesData } from '../api';
@@ -46,7 +46,9 @@ const Discover = () => {
         <View><Text className="text-[30px] text-[#0B646B] font-bold ">Explore</Text>
         <Text className="text=[#527283] text-[28px]">the nature today</Text></View>
         <View className="w-12 h-12 bg-gray-400 rounded-md items-center justify-center">
-        
+          <Image className="w-full h-14"
+          source={SpyGlass}
+          />
         </View>
     
       </View>
