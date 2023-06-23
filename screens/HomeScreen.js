@@ -31,6 +31,10 @@ const HomeScreen = () => {
       source={StepOut}
       />
     </View>
+
+    <View>
+      
+    </View>
      <TouchableOpacity
      onPress={ () => navigation.navigate("Discover")} 
      className="mt-10 pt-40 ml-40">
